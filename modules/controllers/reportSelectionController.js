@@ -8,7 +8,7 @@ angular.module('ProjectCreation').controller('reportSelection_Ctrl',['$scope',fu
 	this.template = {};
 	$scope.object = {};
 	
-	this.langLibrary = $scope.main.obj[0].libraries;
+	this.langLibrary = $scope.main.obj[0][0].libraries;
 	this.templates = $scope.main.obj[5][0].templates;
 	
 	
