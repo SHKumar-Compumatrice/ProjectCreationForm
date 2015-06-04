@@ -1,26 +1,26 @@
 angular.module('ProjectCreation').factory('fetchData_svc',['$http','$q','Urls', function($http,$q,Urls){
 	
 	var fetchData  = {};
-	//var staticPath = 'static_data/';
+	var staticPath = 'static_data/';
 	return {
 		
 		getPreFormRenderData : function(){
 			console.log("reached factory");
-			/*getLibrariesUrl  = staticPath + 'getLibraries.js';
+			getLibrariesUrl  = staticPath + 'getLibraries.js';
 			getOfficesUrl = staticPath + 'getOffices.js';
 			getPropertyTypesUrl = staticPath + 'getPropertyTypes.js';
 			getRelatedCompaniesUrl = staticPath + 'getRelatedCompanies.js';
 			getTeamsUrl = staticPath + 'getTeams.js';
 			getTemplatesUrl = staticPath + 'getTemplates.js';
-			getTransactionTypesUrl = staticPath + 'getTransactionTypes.js';*/
+			getTransactionTypesUrl = staticPath + 'getTransactionTypes.js';
 			
-			getLibrariesUrl  = Urls.getLibraries;
+			/*getLibrariesUrl  = Urls.getLibraries;
 			getOfficesUrl = Urls.getOffices;
 			getPropertyTypesUrl = Urls.getPropertyTypes;
 			getRelatedCompaniesUrl = Urls.getRelatedCompanies;
 			getTeamsUrl = Urls.getTeams;
 			getTemplatesUrl = Urls.getTemplates;
-			getTransactionTypesUrl = Urls.getTransactionTypes;
+			getTransactionTypesUrl = Urls.getTransactionTypes;*/
 			
 			
 			var promiseA = $http.get(getLibrariesUrl).then(function(result){
