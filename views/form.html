@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+.top-margin {
+	margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+<div class="alert alert-danger alert-dismissible" role="alert" ng-show="main.createProjectFailed">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> Invalid form entry . Please re-check form submission.
+</div>
+	<div class="container top-margin">
+		<form name="userForm">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default" ng-include
+					src="'views/projectInfo.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/clientInfo.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/propertyInfo.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/reportSelection.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/additionalPropertyInfo.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/siteContactInfo.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/grantAccessToUsers.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/attachments.html'"></div>
+				<div class="panel panel-default" ng-include
+					src="'views/emailNotification.html'"></div>
+			</div>
+			<div align="center" ng-show="lastDivLoaded">
+				<button class="btn btn-md btn-primary"
+					ng-click="main.CreateProject()">Create Project</button>
+				<button class="btn btn-md btn-default" ng-click="main.cancelCreateProject()">Cancel and Return
+					Home</button>
+			</div>
+			<div class="col-md-12 col-xs-12" ng-show="lastDivLoaded">
+				<input type="checkbox" id="checkedJson" ng-model="main.checkedJson"
+					ng-change="main.checked()" /><span> Show data after
+					submiting the form: </span>
+			</div>
+			<div class="col-md-12 col-xs-12" ng-show="main.checkedJson">
+
+				<pre>{{main.submitDataSample | json}}</pre>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

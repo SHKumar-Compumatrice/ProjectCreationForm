@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.reqText {
+  color: red;
+}
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+}
+</style>
+</head>
+<body>
+
+
+
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseProjInfo">Project Information</a>
+		</h5>
+	</div>
+	<div id="collapseProjInfo" class="panel-collapse collapse in">
+		<form name="propertyInfoForm" class="form-horizontal panel-body"
+			ng-controller="projectinfo_Ctrl as projectInfo">
+
+			<div class="form-group" show-errors>
+				<label for="projectName" class="control-label col-md-2 col-xs-2">Project
+					Name:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="projectName"
+						ng-model="main.parentProjectInfo.projectName" name="projectName" required>
+				</div>
+				<div class="col-xs-2 col-md-2 nopadding">
+				<span class="reqText">*</span></div>
+			</div>
+			<div class="form-group" show-errors>
+				<label for="dateDraftDue" class="control-label col-md-2 col-xs-2">Date
+					Draft Due:</label>
+
+				<div class="col-xs-4 col-md-4">
+					
+						<input type="text" name="dateDraftDue" class="form-control"
+							datepicker-popup="MM-dd-yyyy" show-weeks="false"
+							ng-model="main.parentProjectInfo.dateDraftDue" is-open="opened"
+							close-text="Close" required  ng-readonly = "true" name="dateDraftDue" ng-change="projectInfo.draftDue()"/> 
+							<!-- <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="openDateDraftDue($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span> -->
+				
+				</div>
+				<div class="col-xs-2 col-md-2 nopadding">
+				<span class="reqText">*</span></div>
+
+			</div>
+			<div class="form-group" show-errors>
+				<label for="dateFinalDue" class="control-label col-md-2 col-xs-2">Date
+					Final Due:</label>
+				<div class="col-xs-4 col-md-4">
+					
+						<input type="text" name="dateFinalDue" class="form-control"
+							datepicker-popup="MM-dd-yyyy" show-weeks="false"
+							ng-model="main.parentProjectInfo.dateFinalDue" is-open="closed"
+							close-text="Close" required ng-readonly = "true" name="dateFinalDue" ng-change = "projectInfo.finalDue()"/> 
+							<!-- <span class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="openDateFinalDue($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span> -->
+					
+				</div>
+				<div class="col-xs-2 col-md-2 nopadding">
+				<span class="reqText">*</span></div>
+			</div>
+
+		</form>
+	</div>
+
+
+
+	<div class="clearfix"></div>
+</body>
+</html>

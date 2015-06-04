@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+
+.top-margin {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseGrantAccess">Grant Access to Other Users</a>
+		</h5>
+	</div>
+	<div id="collapseGrantAccess"
+		class="panel-collapse collapse top-margin">
+		<form name="propertyInfoForm" class="form-horizontal"
+			ng-controller="grantAccess_Ctrl as grantAccess">
+
+			<div class="form-group">
+				<div class="col-md-2 col-xs-2">
+					<input type="checkbox" id="chkOffices" name="chkOffices"
+						ng-model="main.parentGrantAccess.chkOffices" /><span> Your
+						Organization: </span>
+				</div>
+
+				<div class="col-xs-4 col-md-4">
+					<select class="form-control" id="drpdownOffices" type="select"
+						name="drpdownOffices" ng-model="main.parentGrantAccess.drpdownOffices"
+						data-ng-options="office.name for office in grantAccess.offices">
+						<option value="">Select Organization</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-2 col-xs-2">
+					<input type="checkbox" id="chkboxTeams" name="chkTeams"
+						ng-model="main.parentGrantAccess.chkTeams" /><span> Your
+						Client: </span>
+				</div>
+
+				<div class="col-xs-4 col-md-4">
+					<select class="form-control" id="drpdownTeams" type="select"
+						name="drpdownTeams"
+						ng-model="main.parentGrantAccess.drpdownTeams"
+						data-ng-options="team.name for team in grantAccess.teams">
+						<option value="">Select Client</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-2 col-xs-2">
+					<input type="checkbox" id="chkboxRelatedCompanies" name="chkRelatedCompanies"
+						ng-model="main.parentGrantAccess.chkRelatedCompanies" /><span> Your
+						A Third Party: </span>
+				</div>
+
+				<div class="col-xs-4 col-md-4">
+					<select class="form-control" id="drpdownClient" type="select"
+						name="drpdownClient"
+						ng-model="main.parentGrantAccess.drpdownRelatedCompanies"
+						data-ng-options="comapny.name for comapny in grantAccess.relatedcompanies">
+						<option value="">Select Third Party</option>
+					</select>
+				</div>
+			</div>
+			
+
+
+
+		</form>
+
+
+	</div>
+	<div class="clearfix"></div>
+</body>
+</html>

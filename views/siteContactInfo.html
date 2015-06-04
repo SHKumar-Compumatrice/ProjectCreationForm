@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+
+.top-margin {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseSiteContactInfo">Site Contact Information</a>
+		</h5>
+	</div>
+	<div id="collapseSiteContactInfo"
+		class="panel-collapse collapse top-margin">
+
+
+		<form name="siteContactInfoForm" class="form-horizontal"
+			ng-controller="sitecontactinfo_Ctrl as siteContactInfo">
+
+
+			<div class="form-group">
+				<label for="contactName" class="control-label col-md-2 col-xs-2">Contact
+					Name:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="contactName"
+						ng-model="main.parentSiteContactInfo.contactName">
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contactPhone" class="control-label col-md-2 col-xs-2">Contact
+					Phone:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="contactPhone"
+						ng-model="main.parentSiteContactInfo.contactPhone">
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contactFax" class="control-label col-md-2 col-xs-2">Contact
+					Fax:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="contactFax"
+						ng-model="main.parentSiteContactInfo.contactFax">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contactEmail" class="control-label col-md-2 col-xs-2">Contact
+					Email:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="contactEmail"
+						ng-model="main.parentSiteContactInfo.contactEmail">
+				</div>
+			</div>
+
+
+		</form>
+
+
+	</div>
+	<div class="clearfix"></div>
+</body>
+</html>

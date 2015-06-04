@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+</style>
+</head>
+<body>
+
+
+
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseClientInfo">Client Information</a>
+		</h5>
+	</div>
+	<div id="collapseClientInfo" class="panel-collapse collapse">
+		<form name="clientInfoForm" class="form-horizontal panel-body"
+			ng-controller="clientinfo_Ctrl as clientInfo">
+
+			<div class="form-group">
+				<label for="comapnyName" class="control-label col-md-2 col-xs-2">Company
+					Name:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="comapnyName"
+						ng-model="main.parentClientInfo.companyName"> <a href="#"
+						find-Contact>Find Contact</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contact" class="control-label col-md-2 col-xs-2">Contact:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="contact"
+						ng-model="main.parentClientInfo.contact">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="control-label col-md-2 col-xs-2">Address:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="address"
+						ng-model="main.parentClientInfo.address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="city" class="control-label col-md-2 col-xs-2">City:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="city"
+						ng-model="main.parentClientInfo.city">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="country" class="control-label col-md-2 col-xs-2">Country:</label>
+				<div class="col-xs-4 col-md-4">
+					<select class="form-control" id="country" type="select"
+						name="Roles" ng-model="main.parentClientInfo.country"
+						data-ng-options="country for country in main.countries">
+						<option value="">Select Country</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="state" class="control-label col-md-2 col-xs-2">State:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="state"
+						ng-model="main.parentClientInfo.state">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="zip" class="control-label col-md-2 col-xs-2">Zip:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="text" class="form-control" id="zip"
+						ng-model="main.parentClientInfo.zip">
+				</div>
+			</div>
+
+
+		</form>
+	</div>
+
+
+</body>
+</html>

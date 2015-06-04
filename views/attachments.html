@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+
+.fileinput-button {
+	position: relative;
+	overflow: hidden;
+}
+
+.fileinput-button input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	-ms-filter: 'alpha(opacity=0)';
+	font-size: 200px;
+	direction: ltr;
+	cursor: pointer;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+	.fileinput-button input {
+		filter: alpha(opacity = 0);
+		font-size: 100%;
+		height: 100%;
+	}
+}
+
+.top-margin {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseAttachment">Attachments</a>
+		</h5>
+	</div>
+	<div id="collapseAttachment" class="panel-collapse collapse top-margin">
+
+		<form id="fileupload" style="align-content: center;"
+			ng-controller="attachments_Ctrl as attachments">
+			<div class="row fileupload-buttonbar AU_uploadbox col-md-12 ">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div
+						class="col-md-offset-1 col-xs-12 col-md-12 col-lg-12 form-group">
+
+						<span class="btn btn-md btn-success fileinput-button"
+							ng-class="{disabled: disabled}"><i
+							class="fa fa-file-text-o"></i> Attach <input id="file-3"
+							type="file" data-file-input="files"
+							onchange="angular.element(this).scope().fileUploadClicked(this)" />
+						</span>
+						<button type="button" class="btn btn-md btn-primary start"
+							ng-click="Upload()">
+							<span class="glyphicon glyphicon-upload"></span> Upload
+						</button>
+						<span class="AU_uploadFilename text-primary"
+							ng-repeat="file in files">{{file.name}}</span>
+					</div>
+					<!-- The global file processing state -->
+					<span class="fileupload-process"></span>
+					<!-- The global progress state -->
+
+					<!--<span id="filetag" class="AU_uploadFilename" ng-show="filename">{{browsedfilename}}</span>-->
+					<!--<li ng-repeat="file in files">{{file.name}}</li>-->
+					<div ng-show="isUploadErrorMsg">
+						<div>
+							<span class="Success_Green">{{UploadSuccessMsg}}</span>
+						</div>
+						<div>
+							<span class="Success_Green">{{UploadErrorMsg}}</span><span
+								class="Error_Red">{{UploadErrorMsg1}}</span>
+						</div>
+						<div>
+							<span class="Error_Red">{{IncorrectFormat}}</span>
+						</div>
+						<div>
+							<span class="Error_Red"> <a ng-click="ShowUploadStatus()"
+								ng-show="popuplink">Click here for more details </a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="clearfix"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+
+.top-margin {
+	margin-top: 20px;
+}
+.form-group .help-block {
+  display: none;
+}
+ 
+.form-group.has-error .help-block{
+  display: block;
+}
+</style>
+</head>
+<body>
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseEmailNotification">Email Notification</a>
+		</h5>
+	</div>
+	<div id="collapseEmailNotification"
+		class="panel-collapse collapse top-margin">
+
+
+		<form name="clientInfoForm" class="form-horizontal"
+			ng-controller="emailNotification_Ctrl as emailNotification">
+			<div class="col-md-12 col-xs-12 form-group">
+				<input type="checkbox" id="sendEmail" name="mail"
+					ng-change="emailNotification.sendNotification()"
+					ng-model="main.parentEmailNotification.sendMail" /><span>
+					Send Email Notification to Other Users </span>
+			</div>
+			<div class="form-group">
+				<label for="from" class="control-label col-md-2 col-xs-2">From:</label>
+				<div class="col-xs-4 col-md-4">
+					<p>Mr. Appraiser Gabberty</p>
+
+				</div>
+			</div>
+			<div id="divEmailTo" class="form-group" show-errors>
+				<label for="to" class="control-label col-md-2 col-xs-2">To:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="email" class="form-control" id="to"
+						ng-disabled="!main.parentEmailNotification.sendMail"
+						ng-model="main.parentEmailNotification.to" name = "To" ng-change="emailNotification.emailTo(clientInfoForm)"> 
+						<a href="#"
+			find-Contact>Find Contact</a>
+				</div>
+				<p class="help-block" ng-if="clientInfoForm.To.$error.email">The email address is invalid</p>
+			</div>
+			<div id="divEmailCC" class="form-group" show-errors>
+				<label for="cc" class="control-label col-md-2 col-xs-2">CC:</label>
+				<div class="col-xs-4 col-md-4">
+					<input type="email" class="form-control" id="cc"
+						ng-disabled="!main.parentEmailNotification.sendMail"
+						ng-model="main.parentEmailNotification.CC" name = "CC" ng-change="emailNotification.emailCC(clientInfoForm)">
+				</div>
+				<p class="help-block" ng-if="clientInfoForm.CC.$error.email">The email address is invalid</p>
+			</div>
+			<div class="form-group">
+				<label for="message" class="control-label col-md-2 col-xs-2">Message:</label>
+				<div class="col-xs-4 col-md-4">
+					<textarea class="form-control" id="message"
+						ng-disabled="!main.parentEmailNotification.sendMail"
+						ng-model="main.parentEmailNotification.message"></textarea>
+				</div>
+				
+			</div>
+		</form>
+
+
+	</div>
+</body>
+</html>

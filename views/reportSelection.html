@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+.top-margin {
+	margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+	<div class="panel-heading">
+		<h5 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseReports">Report Selection</a>
+		</h5>
+	</div>
+
+
+	<div id="collapseReports" class="panel-collapse collapse"
+		ng-controller="reportSelection_Ctrl as reportSelection">
+	<div ng-repeat = "report in reportTypes">
+	
+    <div class="col-md-12 col-lg-12 col-sm-12 top-margin"> 
+    
+    <div align="left" class=""><h5>{{report}} </h5></div>
+    
+    <div class="col-md-6 col-lg-6 col-sm-6 top-margin"
+			ng-repeat="template in reportSelection.templates | filter : {reportType : report}">
+
+			<div class="col-md-12 col-lg-12 col-sm-12">
+				<input type="checkbox" id="Report" name="Report"
+					ng-change="reportSelection.chkboxChecked(template,$index)"
+					ng-model="main.parentReportSelection.template[template.templateID]" /><span>
+					{{template.templateName}} </span>
+			</div>
+			<div class="col-md-12 col-lg-12 col-sm-12 form-group" id = "{{template.templateID}}" ng-show="main.parentReportSelection.template[template.templateID]">
+			
+				<form name = "reportForm" novalidate>
+					<div class="col-md-4 col-sm-4 col-lg-12 col-xs-12 form-group">
+						<label for="fee" class="control-label">Fee <i
+							class=" text-blue fa fa-question-circle"></i></label> <input type="text"
+							id="fee" class="form-control"
+							ng-model="main.parentReportSelection.fee[template.templateID]"
+							placeholder="N/A"> <span class="help-block"></span>
+					</div>
+					<div class="col-md-5 col-sm-5 col-lg-12 col-xs-12 form-group" show-errors>
+						<label for="project" class="control-label">Project #: </label> <input
+							type="text" class="form-control"
+							ng-model="main.parentReportSelection.project[template.templateID]"
+							id="project" placeholder="N/A" ng-required = "main.parentReportSelection.template[template.templateID]"  name="project"/> 
+							<span class="reqText">*</span>
+							
+							
+				           
+					</div>
+					<div class="col-md-6 col-sm-6 col-lg-12 col-xs-12  form-group">
+						<label for="po" class="control-label">PO #: </label> <input
+							type="text" id="po" class="form-control"
+							ng-model="main.parentReportSelection.po[template.templateID]"
+							placeholder="N/A"> <span class="help-block"></span>
+					</div>
+					<div class="col-md-6 col-sm-6 col-lg-12 col-xs-12  form-group">
+						
+						<label for="langlib" class="control-label">Language
+							Library: </label> <select class="form-control" id="langlib" type="select"
+							name="langlib"
+							ng-model="main.parentReportSelection.langlib[template.templateID]"
+							ng-change="reportSelection.langChanged(langLib)"
+							data-ng-options="langLib.name for langLib in reportSelection.langLibrary | filter : {reportType : report}">
+							<option value="">-- Select Language Library --</option>
+						</select> <span class="help-block"></span>
+					</div>
+				</form>
+
+			</div>
+		</div>
+    
+    
+    </div>
+
+		
+		</div>
+		</div>
+	
+	<div class="clearfix"></div>
+
+</body>
+</html>

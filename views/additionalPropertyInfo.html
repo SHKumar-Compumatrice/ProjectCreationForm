@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+	/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+    .form-horizontal .control-label{
+        padding-top: 7px;
+    }
+     .top-margin{margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="panel-heading">
+<h5 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapseAddPropInfo">Additional Property Information</a></h5>
+</div>
+<div id="collapseAddPropInfo" class="panel-collapse collapse top-margin">
+
+<form name="additionalPropertyInfoForm" class="form-horizontal" ng-controller="addpropertyinfo_Ctrl as additionalPropertyInfo">
+
+<div class="form-group">
+ <label for="propType" class="control-label col-md-2 col-xs-2">Property Type:</label>
+            <div class="col-xs-4 col-md-4">
+            <select class="form-control" id="propType" type="select" 
+                                                name="propTypes" ng-model="main.parentAddpropInfo.propType" ng-change="additionalPropertyInfo.propTypeChanged(main.parentAddpropInfo.propType)" data-ng-options="propertyType for propertyType in additionalPropertyInfo.propertyTypes">
+                                            <option value="">Select Property</option>
+                                        </select>
+                                        
+                          
+                                        </div>
+</div>
+<div class="form-group" ng-show = "additionalPropertyInfo.showOption">
+ 
+                   <div class="col-md-offset-2 col-xs-offset-2 col-xs-4 col-md-4">                     
+               <input type="text" class="form-control"  id="otherPropType" ng-model="main.parentAddpropInfo.otherPropType">                           
+                                        </div>
+</div>
+<div class="form-group">
+ <label for="county" class="control-label col-md-2 col-xs-2">County:</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" id="county" ng-model="main.parentAddpropInfo.county">
+                
+            </div>
+</div>
+<div class="form-group">
+ <label for="latitude" class="control-label col-md-2 col-xs-2">Latitude:</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" id="latitude" ng-model="main.parentAddpropInfo.latitude">
+                
+            </div>
+</div>
+<div class="form-group">
+ <label for="longitude" class="control-label col-md-2 col-xs-2">Longitude:</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" id="longitude" ng-model="main.parentAddpropInfo.longitude">
+            </div>
+</div>
+<div class="form-group">
+ <label for="acerage" class="control-label col-md-2 col-xs-2">Acerage:</label>
+               <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" id="acerage" ng-model="main.parentAddpropInfo.acerage">
+            </div>
+</div>
+<div class="form-group">
+ <label for="buildings" class="control-label col-md-2 col-xs-2">Number of Buildings:</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" id="buildings" ng-model="main.parentAddpropInfo.buildings">
+            </div>
+</div>
+<div class="form-group">
+ <label for="transactionType" class="control-label col-md-2 col-xs-2">Transaction Type:</label>
+            <div class="col-xs-4 col-md-4">
+            <select class="form-control" id="transactionType" type="select"
+                                                name="transactionTypes" ng-model="main.parentAddpropInfo.transactionType" data-ng-options="transactionType for transactionType in additionalPropertyInfo.transactionTypes">
+                                            <option value="">Select Property</option>
+                                        </select>
+                                        </div>
+</div>
+
+
+</form>
+
+
+</div>
+
+</body>
+</html>
